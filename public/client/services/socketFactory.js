@@ -1,6 +1,6 @@
 angular.module('canteen.socketFactory', [])
 
-.factory('Socket', [
+.factory('socket', [
   'socketFactory',
   function(socketFactory) {
     var mainSocket = socketFactory();
