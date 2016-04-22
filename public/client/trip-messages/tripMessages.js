@@ -4,28 +4,25 @@ angular.module('canteen.tripMessages', [])
   '$scope',
   'messageFactory',
   function ($scope, messageFactory) {
-    $scope.messages = [
-      {
-        username : 'Ben',
-        createdAt : 'Tuesday',
-        message : 'Hello there'
-      },
-      {
-        username : 'Wendy',
-        createdAt : 'Friday',
-        message : 'Come on over, come on over baby'
+    $scope.messageForm = {};
+    $scope.messages = [];
+
+    $scope.$watch('trip', function() {
+      if ($scope.trip) {
+        messageFactory.getMessages($scope.trip._id)
+        .then(function (messages) {
+          $scope.messages = messages;
+        });
       }
-    ];
+    });
 
-    // messageFactory.getMessages($scope.trip._id)
-    // .then(function (messages) {
-    //   $scope.messages = messages;
-    // });
-
-    // $scope.submitMessage = function (isValid) {
-    //   if (isValid) {
-    //     console.log('got a valid message on our hands');
-    //   }
-    // };
+    $scope.submitMessage = function (isValid) {
+      if (isValid) {
+        messageFactory.addMessage($scope.messageForm, $scope.trip._id)
+        .then(function (response) {
+          return;
+        });
+      }
+    };
   }
 ]);
