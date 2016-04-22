@@ -10,6 +10,7 @@ angular.module('canteen', [
   'canteen.tripForm',
   'canteen.userTrips',
   'canteen.userTripsCtrl',
+  'canteen.tripMessages',
   'ngMap',
   'ui.bootstrap',
   'ui.router',
