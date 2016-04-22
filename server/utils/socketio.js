@@ -4,7 +4,11 @@ module.exports = function(server) {
   var io = canteenIO.listen(server);
 
   io.sockets.on('connection', function (socket) {
-    socket.emit('canteen-msg', { msg : 'hello canteen' });
+    
+    socket.on('message:send', function (msg) {
+      io.emit('message:broadcast', msg);
+    });
+
   });
 
   return io;
