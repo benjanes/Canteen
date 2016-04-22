@@ -2,7 +2,8 @@ angular.module('canteen.tripMessages', [])
 
 .controller('tripMessages', [
   '$scope',
-  function ($scope, trip) {
+  'messageFactory',
+  function ($scope, messageFactory) {
     $scope.messages = [
       {
         username : 'Ben',
@@ -15,5 +16,16 @@ angular.module('canteen.tripMessages', [])
         message : 'Come on over, come on over baby'
       }
     ];
+
+    // messageFactory.getMessages($scope.trip._id)
+    // .then(function (messages) {
+    //   $scope.messages = messages;
+    // });
+
+    // $scope.submitMessage = function (isValid) {
+    //   if (isValid) {
+    //     console.log('got a valid message on our hands');
+    //   }
+    // };
   }
 ]);

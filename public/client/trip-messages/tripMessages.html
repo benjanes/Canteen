@@ -1,13 +1,17 @@
+<!-- Add Message -->
+<div class="col-sm-4 col-sm-push-8">
+  <form name="addMessageForm" ng-submit="submitMessage(addMessageForm.$valid)" novalidate>
+    <input type="text" ng-model="newMessage.message"></input>
+    <button>Submit</button>
+  </form>
+</div>
+
 <!-- Messages Display -->
-<div class="col-md-9">
+<div class="col-sm-8 col-sm-pull-4">
+  <h2>{{ trip }}</h2>
   <div class="message" ng-repeat="message in messages">
     <h5>{{ message.username }}</h5>
     <h6>{{ message.createdAt }}</h6>
     <p>{{ message.message }}</p>
   </div>
-</div>
-
-<!-- Add Message -->
-<div class="col-md-3">
-  <h1>Add Form Here</h1>
 </div>
