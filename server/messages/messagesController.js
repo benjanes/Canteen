@@ -18,7 +18,6 @@ module.exports = {
       username: req.session.user.given_name + ' ' + req.session.user.family_name,
       message: req.body.message,
     }, function (err, message) {
-      // at this point, broadcast chat msg to all users in a given trip room
       next(err, message);
     });
   }
