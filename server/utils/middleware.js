@@ -1,8 +1,6 @@
 var bodyParser = require('body-parser');
 var session = require('express-session');
-var MongoStore = require('connect-mongo')(session);
 var Grant = require('grant-express');
-var db = require('../db/config');
 
 /* New Grant For Google Authentication */
 var grant = new Grant({
@@ -34,8 +32,7 @@ module.exports = function (app, express) {
   app.use(session({
     secret: process.env.SESSION_SECRET || require('../.config/.secrets.json')['session']['secret'],
     resave: false,
-    saveUninitialized: true,
-    store: new MongoStore({ mongooseConnection : db })
+    saveUninitialized: true
   }));
   app.use(grant);
   app.use(express.static(__dirname + '/../../public', {
