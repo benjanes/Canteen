@@ -30,37 +30,6 @@ angular.module('canteen.messageFactory', [])
       });
     }
 
-    // function getTrip() {
-    //   return $http({
-    //     method: 'GET',
-    //     url: '/api/trip',
-    //   })
-    //   .then(function (resp) {
-    //     if(!resp.data._id){
-    //       $location.path('/#/landing-page');
-    //       window.location.reload(true);
-    //     }
-    //     return resp.data;
-    //   })
-    //   .catch(function (err) {
-    //     console.error(err);
-    //   });
-    // }
-
-    // function updateStatus(trip) {
-    //   return $http({
-    //     method: 'PUT',
-    //     url: '/api/trip/',
-    //     data: trip,
-    //   })
-    //   .then(function (resp) {
-    //     return resp.data;
-    //   })
-    //   .catch(function (err) {
-    //     console.error(err);
-    //   });
-    // }
-
     // Factory methods use promises
     return {
       getMessages: getMessages,
