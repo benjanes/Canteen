@@ -3,7 +3,8 @@ angular.module('canteen.tripMessages', [])
 .controller('tripMessages', [
   '$scope',
   'messageFactory',
-  function ($scope, messageFactory) {
+  'Socket',
+  function ($scope, messageFactory, Socket) {
     $scope.messageForm = {};
     $scope.messages = [];
 

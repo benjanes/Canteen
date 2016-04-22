@@ -12,6 +12,8 @@ angular.module('canteen', [
   'canteen.userTrips',
   'canteen.userTripsCtrl',
   'canteen.tripMessages',
+  'canteen.socketFactory',
+  'btford.socket-io',
   'ngMap',
   'ui.bootstrap',
   'ui.router'
