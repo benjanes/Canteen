@@ -16,7 +16,7 @@ angular.module('canteen', [
   'btford.socket-io',
   'ngMap',
   'ui.bootstrap',
-  'ui.router'
+  'ui.router' 
 ])
 
 .config(function($stateProvider, $urlRouterProvider) {
