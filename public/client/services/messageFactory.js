@@ -35,5 +35,5 @@ angular.module('canteen.messageFactory', [])
       getMessages: getMessages,
       addMessage: addMessage
     };
-  },
+  }
 ]);
