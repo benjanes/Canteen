@@ -8,7 +8,6 @@
     <button class="buttons btn" ng-disabled="addMessageForm.$invalid" disabled="disabled">Submit</button>
   </form>
 </div>
-
 <!-- Messages Display -->
 <div class="col-sm-7 col-sm-pull-5">
   <div class="panel panel-default" ng-repeat="message in messages | orderBy:'-createdAt'">
