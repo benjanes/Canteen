@@ -8,6 +8,5 @@ module.exports = function(server) {
       io.emit('message:broadcast', msg);
     });
   });
-
   return io;
 };
