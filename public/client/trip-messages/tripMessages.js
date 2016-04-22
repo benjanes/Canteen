@@ -39,5 +39,6 @@ angular.module('canteen.tripMessages', [])
         });
       }
     });
+
   }
 ]);
