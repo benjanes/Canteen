@@ -42,7 +42,9 @@
             </form>
           </div>
 
-          <img class="profile-pic" src="img/face.svg">
+          <input type="file" custom-on-change="uploadFile" />
+          <p id="status">Please select a profile image</p>
+          <img id="preview" class="profile-pic" ng-src="{{ user.image_url }}" />
 
         </div>
 
