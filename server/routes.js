@@ -110,7 +110,7 @@ module.exports = function (app) {
         if (err) {
           console.error(err);
         } else {
-          res.redirect('/');
+          res.redirect('/#/');
         }
       });
     });
