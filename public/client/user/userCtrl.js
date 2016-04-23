@@ -15,7 +15,9 @@ angular.module('canteen.user', [])
     .then(function(userData) {
       $scope.user = userData.user;
 
-      $scope.trips = userTrips.poulateTrips(userData.trips);
+      if (userData.trips) {
+        $scope.trips = userTrips.poulateTrips(userData.trips);
+      }
     });
 
   }
