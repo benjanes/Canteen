@@ -9,7 +9,6 @@ angular.module('canteen.navBar', [])
 
     // get the userId on the scope so it can be used in the navbar link
     // also set a logged in/logged out state here
-    // 
     $scope.userId = null;
     $scope.loggedIn = false;
 
@@ -30,7 +29,6 @@ angular.module('canteen.navBar', [])
           $scope.userId = null;
           $scope.loggedIn = false;
         });
-      // window.location.reload(true);
     };
   },
 ]);
