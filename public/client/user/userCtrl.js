@@ -8,6 +8,7 @@ angular.module('canteen.user', [])
     // console.log($stateParams.userId);
 
     $scope.user = {};
+
     $scope.user.given_name = 'John';
     $scope.user.family_name = 'Doe';
     $scope.user.email = 'johndoe@gmail.com';
@@ -45,6 +46,5 @@ angular.module('canteen.user', [])
           $scope.user.favorite_trips = data.favorite_trips;
         });
     };
-
   }
 ]);
