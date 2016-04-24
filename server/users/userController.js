@@ -24,10 +24,21 @@ module.exports = {
     });
   },
 
+  //update users bio Info
+  updateUser: function (userId, data, next) {
+    User.update( { id: userId }, {
+      bio: data.bio,
+      favorite_trips: data.favorite_trips,
+      image_url: data.image_url
+    },
+    function(err, data) {
+      next(err, data);
+    });
+  },
   // add users trip._id to record for later lookup
   // this method is used in a couple methods on routes.js
   addTrip: function (userId, tripId, next) {
-    User.update({ id: userId }, { $set: { trip:tripId } }, function () {
+    User.update({ id: userId }, { $set: { trip: tripId } }, function () {
       next();
     });
   },
@@ -39,3 +50,4 @@ module.exports = {
     });
   }
 };
+

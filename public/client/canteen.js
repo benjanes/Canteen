@@ -15,10 +15,13 @@ angular.module('canteen', [
   'canteen.tripMessages',
   'canteen.socketFactory',
   'canteen.timeHelper',
+  'canteen.awsService',
+  'canteen.directives',
   'btford.socket-io',
   'ngMap',
   'ui.bootstrap',
-  'ui.router'
+  'ui.router',
+  'xeditable'
 ])
 
 .config(function($stateProvider, $urlRouterProvider) {
