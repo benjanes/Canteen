@@ -18,21 +18,6 @@ angular.module('canteen.awsService', [])
     }
 
     function uploadFile(file, putObj, cb) {
-      // return $http({
-      //   method: 'PUT',
-      //   url: putObj.signed_request,
-      //   headers: {
-      //     'x-amz-acl': 'public-read'
-      //   },
-      //   data: file
-      // })
-      // .then(function (resp) {
-      //   console.log(resp);
-      //   return;
-      // })
-      // .catch(function (err) {
-      //   console.error(err);
-      // })
       var xhr = new XMLHttpRequest();
       xhr.open('PUT', putObj.signed_request);
       xhr.setRequestHeader('x-amz-acl', 'public-read');
