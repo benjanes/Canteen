@@ -40,7 +40,8 @@ angular.module('canteen.user', [])
       $scope.toggleProfileUpdate();
       var profile = {
         favorite_trips: $scope.user.favorite_trips,
-        bio: $scope.user.bio
+        bio: $scope.user.bio,
+        image_url: $scope.user.image_url
       };
       userTrips.updateUser(profile, $scope.user.id)
         .then(function(data) {
