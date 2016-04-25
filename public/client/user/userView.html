@@ -12,12 +12,9 @@
         <div class="col-sm-3 profile-left">
 
           <div ng-if="!updateAble">
-            <div class="profile-pic-container">
-              <img class="profile-pic" ng-src="{{ user.image_url }}"></img>
-            </div>
 
-            <!-- <div class="profile-pic" style="background-image:url('{{ user.image_url }}')"></div> -->
-            <!-- <div class="profile-pic" ng-style="{'background-image':'url({{ user.image_url }})'}"></div> -->
+            <div class="profile-pic-holder" style="background-image:url('{{ user.image_url }}')"></div>
+
             <hr>
 
             <div class="panel panel-default">
@@ -46,12 +43,8 @@
               Select Image
             </span>
             
+            <img class="profile-pic" ng-src="{{ user.image_url }}"></img>
 
-            <div class="profile-pic-container">
-              <img class="profile-pic" ng-src="{{ user.image_url }}"></img>
-            </div>
-            <!-- <div class="profile-pic" ng-style="{'background-image':'url({{ user.image_url }})'}"></div> -->
-            <!-- <div class="profile-pic" style="background-image:url('{{ user.image_url }}')"></div> -->
             <hr>
 
             <form id="userUpdateForm" ng-submit="updateProfile()" novalidate>
