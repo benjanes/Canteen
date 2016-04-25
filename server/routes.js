@@ -98,9 +98,8 @@ module.exports = function(app) {
       });
     })
 
-  app.route('/api/trip/delete:tripId')
+  app.route('/api/trip/delete/:tripId')
     .delete(function(req, res) {
-      console.log(98,req.params.tripId)
       tripsController.deleteTrip(req, function(err, data) {
         sendResponse(res, err, data, 204);
       })
