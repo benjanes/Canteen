@@ -25,7 +25,8 @@ angular.module('canteen.taskView', ['xeditable'])
           if (data) {
             trip.getAllTasks($scope.trip._id)
               .then(function(data) {
-                $scope.taskList = data
+                socket.emit('taskList:update', data);
+                // $scope.taskList = data
               });
           }
         });
@@ -45,6 +46,12 @@ angular.module('canteen.taskView', ['xeditable'])
             $scope.taskList[task] = updatedTask;
           }
         }
+      }
+    });
+
+    socket.on('taskList:broadcast', function(taskList) {
+      if (taskList[0].tripId === $scope.trip._id) {
+        $scope.taskList = taskList;
       }
     });
   }
