@@ -10,6 +10,9 @@ angular.module('canteen.trip', ['xeditable'])
   'authFactory',
   function ($scope, trip, NgMap, $stateParams, $location, $state, authFactory) {
     $scope.trip = null;
+
+    $scope.invitedUser = false;
+
     $scope.notUser = false;
     $scope.currentUser = null;
     $scope.loggedIn = false;
