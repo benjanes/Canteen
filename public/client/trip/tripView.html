@@ -2,12 +2,12 @@
   <div class="table-margin">
     <div class="panel panel-default">
 
-      <div class="panel-heading">
+      <!-- Invited user view -->
+      <div class="panel-heading" ng-if="invitedUser">
         <h3 class="panel-title" editable-text="trip.tripName" onbeforesave="updateTrip(trip)"> {{ trip.tripName }} </h3>
-        <button ng-if="invitedUser" style="float: right;" class="btn btn-danger col-sm-1" ng-click="deleteTrip(trip)">delete</button>
+        <button style="float: right;" class="btn btn-danger col-sm-1" ng-click="deleteTrip(trip)">delete</button>
       </div>
 
-      <!-- Invited user view -->
       <div class="panel-body" ng-if="invitedUser">
         <!-- Left column -->
         <div class="col-md-6">
@@ -47,6 +47,10 @@
       </div> <!-- /panel-body -->
 
       <!-- Preview view -->
+      <div class="panel-heading" ng-if="!invitedUser">
+        <h3 class="panel-title"> {{ trip.tripName }} </h3>
+      </div>
+
       <div class="panel-body" ng-if="!invitedUser">
         <!-- Left column -->
         <div class="col-md-6">
