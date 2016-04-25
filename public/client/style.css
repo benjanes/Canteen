@@ -253,6 +253,22 @@ Trip Overview
   background-size: cover;
   background-repeat: no-repeat;
 }
+.profile-pic-holder.small {
+  margin: 0;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.message-panel-title {
+  position: relative;
+}
+.message-panel-username {
+  position: block;
+  margin-left: 45px;
+}
 
 .panel-link,
 .panel-link:hover {
