@@ -93,7 +93,14 @@ module.exports = function(app) {
         });
       });
     })
-    .put(checkUser, function(req, res) {
+    // .put(checkUser, function(req, res) {
+    //   tripsController.updateTrip(req, function(err, data) {
+    //     sendResponse(res, err, data, 200);
+    //   });
+    // });
+
+  app.route('/api/trip/update')
+    .put(function(req, res) {
       tripsController.updateTrip(req, function(err, data) {
         sendResponse(res, err, data, 200);
       });
@@ -109,25 +116,31 @@ module.exports = function(app) {
   app.route('/api/tasks/getAll:tripId', checkUser)
     .get(function(req, res) {
       taskController.getAllTasks(req, function(err, data) {
-        console.log(data)
         sendResponse(res, err, data, 200);
       });
     });
 
-  app.route('/api/tasks/update:tripId')
-    .put(checkUser, function(req, res) {
+  app.route('/api/task/update2')
+    .put(function(req, res) {
+      console.log('update', req.body)
       taskController.updateTask(req, function(err, data) {
         sendResponse(res, err, data, 200);
       });
     });
 
-  app.route('/api/tasks/add/:tripId')
+  app.route('/api/task/add/:tripId')
     .post(function(req, res) {
-      console.log("route", req.body)
       taskController.addTask(req, function(err, data) {
         sendResponse(res, err, data, 200);
       });
     });
+
+  app.route('/api/task/delete/:taskId')
+    .delete(function(req, res) {
+      taskController.deleteTask(req, function(err, data) {
+        sendResponse(res, err, data, 200);
+      })
+    })
 
   /* Message Routes */
   app.route('/api/messages/:tripId')
@@ -166,25 +179,24 @@ module.exports = function(app) {
     });
 
   app.route('/sign_s3')
-    .get(checkUser, function (req, res) {
+    .get(checkUser, function(req, res) {
       var file_extension = req.query.file_name.split('.')[1];
-      aws.config.update({accessKeyId: AWS_ACCESS_KEY, secretAccessKey: AWS_SECRET_ACCESS});
+      aws.config.update({ accessKeyId: AWS_ACCESS_KEY, secretAccessKey: AWS_SECRET_ACCESS });
       var s3 = new aws.S3();
       var s3_params = {
         Bucket: S3_BUCKET_NAME,
-        Key: req.session.user.id+'.'+file_extension,
+        Key: req.session.user.id + '.' + file_extension,
         Expires: 60,
         ContentType: req.query.file_type,
         ACL: 'public-read'
       };
-      s3.getSignedUrl('putObject', s3_params, function(err, data){
-        if(err){
+      s3.getSignedUrl('putObject', s3_params, function(err, data) {
+        if (err) {
           console.log(err);
-        }
-        else{
+        } else {
           var return_data = {
             signed_request: data,
-            url: 'https://'+S3_BUCKET_NAME+'.s3.amazonaws.com/'+req.session.user.id+'.'+file_extension
+            url: 'https://' + S3_BUCKET_NAME + '.s3.amazonaws.com/' + req.session.user.id + '.' + file_extension
           };
           sendResponse(res, err, return_data, 200);
         }

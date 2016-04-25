@@ -1,4 +1,4 @@
-angular.module('canteen.trip', [])
+angular.module('canteen.trip', ['xeditable', 'ui.bootstrap'])
 
 .controller('tripCtrl', [
   '$scope',
@@ -6,16 +6,15 @@ angular.module('canteen.trip', [])
   'NgMap',
   '$stateParams',
   '$location',
-  function ($scope, trip, NgMap, $stateParams, $location) {
+  '$state',
+  function ($scope, trip, NgMap, $stateParams, $location, $state) {
     $scope.trip = null;
     $scope.notUser = false;
-    // console.log($stateParams.tripId);
     $scope.checkForUser = function(email) {
       trip.checkForUser(email)
         .then(function(user) {
-          console.log(user.data);
           if (user.data) {
-            $location.path('/user/' + user.id);
+            $state.go('userView', { userId: user.data.id });
           } else {
             $scope.notUser = true;
             setTimeout(function() {
@@ -25,10 +24,14 @@ angular.module('canteen.trip', [])
           }
         });
     };
+     
+     $scope.updateTrip = function(Trip){
+        console.log(Trip)
+        trip.updateTrip(Trip);
+     };
 
     trip.getTrip($stateParams.tripId)
     .then(function (tripData) {
-      console.log(tripData)
       $scope.trip = tripData;
       $scope.dates = {
         start: moment($scope.trip.dates.start).format('MMM Do, YYYY'),
