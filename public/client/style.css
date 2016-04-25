@@ -14,11 +14,24 @@ p, h1, h2, h3, h4, div, a {
   font-weight: 300;
 }
 
+.navbar-nav {
+  margin: 0 -15px;
+}
+.navbutton {
+  transition: background-color 0.3s;
+}
+.navbutton a {
+  color: rgb(255, 255, 255) !important;
+  transition: color 0.3s;
+}
+.navbutton:hover {
+  background-color: rgb(255, 255, 255);
+}
+.navbutton:hover a {
+  color: rgb(0, 51, 102) !important;
+}
+
 @media (max-width: 979px) {
-  /*body {
-    padding-top: 70px;
-    padding-bottom: 50px;
-  }*/
   .input-group .form-control {
     position: static;
   }
