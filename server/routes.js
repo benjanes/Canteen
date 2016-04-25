@@ -42,13 +42,10 @@ module.exports = function(app) {
 
   /* All User's Info */
   app.route('/api/user/:userId', checkUser)
-    .get(checkUser, function(req, res) {
+    .get(function(req, res) {
       userController.getUser(req.params.userId, function(err, user) {
         if (!user) {
-          sendResponse(res, err, {
-            user: req.session.user,
-            trips: false
-          }, 200);
+          res.redirect('/#/landing-page')
         } else {
           tripsController.getAllUserTrips(user.email, function(err, trips) {
             sendResponse(res, err, {
