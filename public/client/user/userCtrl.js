@@ -51,7 +51,6 @@ angular.module('canteen.user', [])
 
     $scope.uploadFile = function(e) {
       var file = e.target.files[0];
-      console.log(file);
       if (file.size > 40000) {
         alert('Please select an image smaller than 40kb.');
       } else if (file == null) {
@@ -61,6 +60,7 @@ angular.module('canteen.user', [])
       } else {
         awsService.getSignedReq(file)
         .then(function (putObj) {
+          // console.log(file);
           awsService.uploadFile(file, putObj, function(url) {
             $scope.user.image_url = url;
             $scope.$apply();
