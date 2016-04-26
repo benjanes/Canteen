@@ -48,14 +48,3 @@ angular.module('canteen.taskView', ['xeditable'])
     });
   }
 ]);
-
-// .factory('taskHolder', ['$rootScope',
-//   function($rootScope) {
-//     function refreshTasks() {
-//       $rootScope.$broadcast('refresh');
-//     }
-//     return {
-//       refreshTasks: refreshTasks
-//     }
-//   }
-// ]);
